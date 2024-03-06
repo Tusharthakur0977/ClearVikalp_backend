@@ -93,8 +93,12 @@ async function appendToSheet(data) {
 app.post("/api/append", async (req, res) => {
   try {
     const body = req.body;
-    await appendToSheet(body);
-    res.status(200).send("Success");
+    await appendToSheet(body).then((resp) => {
+      console.log(resp);
+      if (resp.status === 200) {
+        return res.status(200).send("Success");
+      }
+    });
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Internal Server Error");
