@@ -41,7 +41,7 @@ async function appendToSheet(data) {
     [
       data.name || "",
       data.phone || "",
-      data.labs || "",
+      data.lab || "",
       "",
       data.plan || "",
       data.date || "",
